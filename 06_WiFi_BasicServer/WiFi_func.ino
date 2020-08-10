@@ -5,6 +5,21 @@
 
 // =================================== Custom Library Definitions ===================
 
+
+void sketchTimerHandle(){
+  
+   if (displayTimeTFT) {                                     // Find flag in Config.h , set to true to enable Sketch Timer on TFT Screen
+    float timeSketchElapsed = float(millis()) / 1000;
+    tft.setCursor(0, 120);
+    tft.setTextColor(ST77XX_WHITE);
+    tft.print(F("Time Elapsed : "));
+    tft.setTextColor(ST77XX_WHITE, ST77XX_RED);
+    tft.println(timeSketchElapsed);
+    prevTime = timeSketchElapsed;
+  }}
+
+
+
 /*
    Put inside a loop to start OTA listening , it will work only till this code is running in a loop
 */
@@ -190,7 +205,7 @@ void printAllNetworks(int num) {
     tft.println(String(num) + " networks found!");
     for (int i = 0 ; i < num ; i++) {
       Serial.println(String(String(i) + ".SSID = " + String(WiFi.SSID(i)) + " RSSI" + String(WiFi.RSSI(i))));
-      checkCursor();
+      checkCursor(120);
       tft.println(String(String(i) + ".SSID = " + String(WiFi.SSID(i)) + ":RSSI(" + String(WiFi.RSSI(i)))+")dB");
       
     }

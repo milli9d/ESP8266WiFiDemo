@@ -22,11 +22,16 @@ static Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS , TFT_DC , TFT_RST);
   ESP8266WiFiMulti wifiMulti;
 #endif
 
+// Member Variables (Do Not Delete)
+float prevTime = 0;
+bool displayTimeTFT = true;
+
+
 // Declarations =====================================================================================
 
 // TFT Library Functions TFT_func.ino
 void welcomeScreen();
-void checkCursor(int yPos = 120);
+void checkCursor(int yPos);
 void clrTFT();                //  Clear TFT Black
 void initTFT();               //  Initialize and Clear TFT
 
@@ -35,6 +40,7 @@ void OTAHandler();
 void enableOTA();
 
 // WiFi Library Functions WiFi_func.ino
+void sketchTimerHandle();
 void connectWiFi();
 void printAllNetworks(int num);
 void scanSync();
