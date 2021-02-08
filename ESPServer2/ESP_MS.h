@@ -25,7 +25,7 @@
 #define WIFI_PASS "boomboomboom"
 // Initialize Objects
 
-static ESP8266WebServer server(7777);
+static ESP8266WebServer server(80);
 static DHT dht(DHTPIN, DHTTYPE);
 static WiFiClient client;
 static Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);

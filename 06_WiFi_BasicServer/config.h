@@ -4,12 +4,12 @@
 #define OTA_En                                      //  Uncomment to Enable OTA
 
 #ifndef TFT_CS
-#define TFT_CS         2
-#define TFT_RST        16
-#define TFT_DC         0
+#define TFT_CS         16
+#define TFT_RST        5
+#define TFT_DC         4
 #endif
 
-#define OTA_LED 15                                  // Comment to disable OTA LED and free pin
+#define OTA_LED 2                                  // Comment to disable OTA LED and free pin
 
 
 // Define OTA timers and flags
